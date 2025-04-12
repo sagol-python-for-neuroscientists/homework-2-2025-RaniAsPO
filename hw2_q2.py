@@ -67,3 +67,24 @@ def meetup(agent_listing: tuple) -> list:
     # Include "Healthy" and "Dead" agents as-is in the final output
     unchanged_agents = [agent for agent in agent_listing if agent.category in {Condition.HEALTHY, Condition.DEAD}]
     return updated_agents + unchanged_agents
+
+if __name__ == '__main__':
+    # Example input
+    agent_listing = (
+        Agent("Adam", Condition.SICK),
+        Agent("Cure0", Condition.CURE),
+        Agent("Cure1", Condition.CURE),
+        Agent("Bob", Condition.HEALTHY),
+        Agent("Alice", Condition.DEAD),
+        Agent("Charlie", Condition.DYING),
+        Agent("Vaccine", Condition.SICK),
+        Agent("Darlene", Condition.DYING),
+        Agent("Emma", Condition.SICK),
+        Agent("Cure2", Condition.CURE),
+    )
+
+    # Process the meeting
+    updated_listing = meetup(agent_listing)
+
+    # Print the result
+    print(f"Question 2 solution: {updated_listing}")
